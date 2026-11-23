@@ -9,18 +9,18 @@ description: |
 
 Microsoft Copilot Studio is Microsoft's graphical, low-code studio for building and managing AI-powered agents and workflows. It is one of the five Power Platform products (with Power Apps, Power Automate, Power BI, and Power Pages), all sharing Microsoft Dataverse as the data platform. Access Copilot Studio at https://copilotstudio.microsoft.com; build apps at https://make.powerapps.com; administer everything at https://admin.powerplatform.microsoft.com. Official docs: https://learn.microsoft.com/en-us/power-platform/
 
-Core facts as of the October 2026 documentation. Copilot Studio moved from a topic-only chatbot tool to a single studio combining agents, workflows, and apps. Three **harnesses** (runtimes) power everything you build:
+Core facts as of the November 2026 documentation (post-Microsoft Ignite 2026). Copilot Studio moved from a topic-only chatbot tool to a single studio combining agents, workflows, and apps. Three **harnesses** (runtimes) power everything you build:
 
 1. **Microsoft Copilot harness** — reasoning-heavy, multistep business processes. Reasons from instructions, breaks goals into steps, calls tools, recovers from failures, creates/edits Word/Excel/PowerPoint/PDF files natively, supports skills and memory, runs tasks in a secure sandbox. Billed in Copilot Credits (usage-based).
-2. **Customer Conversation harness** (preview, Oct 2026) — customer-facing voice and chat, contact-center style. A primary agent works with specialized sub-agents, each with a human escalation path. Billed in Copilot Credits.
+2. **Customer Conversation harness** (GA, November 2026) — customer-facing voice and chat, contact-center style. A primary agent works with specialized sub-agents, each with a human escalation path. Billed in Copilot Credits.
 3. **Standard harness** — rule-based agents with *topics*, structured predictable conversations (formerly the "classic" Copilot Studio / Power Virtual Agents experience). Billed with the Copilot Studio capacity model (per-message packs), not credits.
 
 ## Building blocks
 
-- **Agents**: AI assistants that converse and complete tasks using instructions, knowledge, and tools. Can be created by describing them in plain language. Agents can get their own Microsoft Entra ID account, mailbox, and Teams presence (preview) to act proactively.
-- **Workflows**: drag-and-drop automations where each step can reason and act; AI helps generate and validate end to end; built-in testing and human-in-the-loop.
+- **Agents**: AI assistants that converse and complete tasks using instructions, knowledge, and tools. Can be created by describing them in plain language (also from Copilot Cowork/Code, preview). Agents can get their own Microsoft Entra ID account, mailbox, and Teams presence (preview) to act proactively; dedicated agent accounts (managed credentials, teammate-like agents you can @-mention) enter public preview December 2026. Agent sharing is GA: multiple makers can co-author the same agent.
+- **Workflows**: drag-and-drop automations where each step can reason and act; AI helps generate and validate end to end; built-in testing and human-in-the-loop. Nodes include extract, Copilot node (preview), agent node, and classify node (decision-scoring model by default since November 2026); per-workflow Copilot Credit usage visibility.
 - **Agent flows**: established flow format native to Copilot Studio (similar authoring to Power Automate); standalone or attached to an agent as a tool.
-- **Apps** (preview): app creation experience in Copilot Studio.
+- **Apps** (GA November 2026, rolling out with Copilot Cowork): app creation experience in Copilot Studio; running these apps is included with Power Apps Premium subject to request limits, then Copilot Credits.
 - **Skills**: reusable capability packages; can be shared across makers/organization via marketplace (preview); standard-harness topics can be rebuilt as skills or workflows during harness upgrade.
 - **Topics**: standard harness conversation units with connected steps, questions, conditions.
 
@@ -39,7 +39,7 @@ Knowledge sources: uploaded files (PDF/Word/Excel/PowerPoint), public websites, 
 
 ## Publishing and channels
 
-Microsoft channels: Microsoft Copilot app, Microsoft Teams, SharePoint (standard harness only). Web/app: demo website, custom web app via iframe, native apps via Direct Line. Preview channels: MCP client (agent as remote MCP server) and A2A client, authenticated with Microsoft Entra ID. Voice: real-time voice agents deployable across voice and digital messaging. Contact center: Genesys, LivePerson, Salesforce, ServiceNow, Dynamics 365 Omnichannel (handoff via Microsoft 365 Agents SDK skill routed through Azure Bot Service). Note: no new WhatsApp agents via Azure Communication Services channel as of October 23, 2026.
+Microsoft channels: Microsoft Copilot app, Microsoft Teams, SharePoint (standard harness only). Web/app: demo website, custom web app via iframe, native apps via Direct Line. Preview channels: MCP client (agent as remote MCP server) and A2A client, authenticated with Microsoft Entra ID. Voice: real-time voice agents deployable across voice and digital messaging. Contact center: Genesys, LivePerson, Salesforce, ServiceNow, Dynamics 365 Omnichannel (handoff via Microsoft 365 Agents SDK skill routed through Azure Bot Service); the Customer Conversation harness (GA) is Microsoft's purpose-built path for customer-facing voice/chat. Note: no new WhatsApp agents via Azure Communication Services channel as of October 23, 2026.
 
 ## Autonomous agents
 
@@ -71,7 +71,7 @@ Standard harness default: GPT-5.5 Chat; Claude Opus 4.8 GA; GPT-5.3 Chat preview
 
 ## VS Code tooling (details in `vscode-extension.md`)
 
-Three official Microsoft VS Code developer surfaces:
+Three official Microsoft VS Code developer surfaces (plus the new Copilot Studio CLI and GitHub-repo-backed developer artifacts, both public preview as of November 2026):
 - **Copilot Studio extension** (GA, marketplace ID `ms-CopilotStudio.vscode-copilotstudio`) for standard-harness agent authoring: **Clone** cloud agents to local YAML (`agent.mcs.yaml`, `topics/`, `actions/`, `workflows/`, `trigger/`, `knowledge/files/`, settings, connection references) via the Agents pane, command palette, or agent URL; **Edit** AdaptiveDialog topics (SendActivity, Question, Power Fx ConditionGroup), tools, triggers with IntelliSense and the Problems pane; **Sync** with Preview (cloud→local), Get (cloud→local, conflict review), Apply (local→cloud, updates the live agent, blocked if remote changes weren't retrieved, NOT publish). Team ALM via Git/PR and `Copilot Studio: Reattach Agent`; solutions + pipelines remain the recommended deployment path.
 - **Power Platform Tools extension** (`microsoft-IsvExpTools.powerplatform-vscode`): the recommended install of the **Power Platform CLI (pac)** — Dataverse solutions (create/pack/unpack/import), packages, environment management, Power Apps portals, auth profile management. Auto-updates; pac runs by default in the VS Code PowerShell terminal (CMD/PowerShell need .NET Tool/MSI/PATH).
 - **Dataverse MCP server** with GitHub Copilot: expose a Dataverse environment at `{instance URL}/api/mcp` (GA) or `/api/mcp_preview` (preview). VS Code: `MCP: Add Server` → HTTP/SSE → paste URL + `/api/mcp` → use agent mode. Copilot CLI: add to `~/.copilot/mcp-config.json` or install the Dataverse plugin from the Awesome Copilot marketplace and run `/dataverse:mcp-configure`. Requires the Microsoft GitHub Copilot MCP client to be allowed in the environment.
@@ -128,4 +128,4 @@ Support files in this directory:
 - `dataverse.md` — Dataverse tables, logic, security, integration, developer APIs.
 - `power-automate.md` — cloud flows, desktop flows (RPA), generative actions, Copilot in flows.
 - `vscode-extension.md` — VS Code tooling: Copilot Studio extension (clone/edit/sync agents), Power Platform Tools (pac CLI for Dataverse ALM), Dataverse MCP with GitHub Copilot.
-- `changelog-2026.md` — snapshot of notable changes recorded from the official What's New pages (June–October 2026).
+- `changelog-2026.md` — snapshot of notable changes recorded from the official What's New pages and Copilot blog (June–November 2026).

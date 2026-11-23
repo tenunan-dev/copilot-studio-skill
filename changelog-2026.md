@@ -18,6 +18,19 @@ Recorded from https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-n
 - **Dataverse MCP server**: GitHub Copilot in VS Code and Copilot CLI can connect to a Dataverse environment at `{instance URL}/api/mcp` (GA) or `/api/mcp_preview` (preview), enabled per environment by admins.
 - **Power Platform Tools** VS Code extension remains the recommended Power Platform CLI (pac) install, with auto-updates and authentication profile management.
 
+## November 2026
+
+Announced at Microsoft Ignite 2026 (November 18, 2026; https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-and-manage-business-processes-with-microsoft-copilot-studio/). The What's New page (checked November 23, 2026) still lists October 2026 as its latest section.
+
+- **Customer Conversation harness GA**: no longer preview; customer-facing voice and chat with sub-agents and human handoff with context.
+- **Apps in Copilot Studio GA** (rolling out November 2026), together with **Copilot Cowork**: apps bring structure to repeatable tasks; running Copilot Studio-built apps is included with Power Apps Premium user licenses subject to request limits, beyond which Copilot Credits apply.
+- **Dedicated agent accounts** enter **public preview in December 2026**: managed credentials and approved-resource access; agents act like teammates (can be @-mentioned, keep working around the clock, show their actions). Extends the existing agent accounts (Entra ID, mailbox, Teams presence) from October.
+- **Agent sharing GA**: multiple makers work on the same agent directly in Copilot Studio.
+- **Copilot Studio agent and workflow creation through Copilot Cowork and Copilot Code (public preview)**: create in natural language, then refine and govern in Copilot Studio.
+- **Developer tooling**: build and edit Copilot Studio agents locally with artifacts backed by GitHub repositories; **public preview of command-line tools (Copilot Studio CLI) and Copilot Studio MCP** so developers and their AI assistants can access Copilot Studio components (Microsoft Copilot harness, tools, models).
+- **Workflows**: classify node now uses a decision-scoring model by default (faster, more accurate classification for triage/routing); clearer credit usage visibility per workflow.
+- Persistent agents: memory and signal-based triggers let agents carry work forward over time and keep running independently.
+
 ## October 2026
 
 - **Customer Conversation harness (preview)**: customer-facing agents over speech and chat with specialized sub-agents and human escalation; build from Copilot Studio or the Microsoft Contact Center Intelligence portal (portal only connects to a live contact center). Billed in Copilot Credits.

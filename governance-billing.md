@@ -1,6 +1,6 @@
 # Governance, Security, and Billing
 
-Distilled from Microsoft Learn (October 2026). Rates and thresholds change; check the Licensing Guide and billing pages before quoting numbers.
+Distilled from Microsoft Learn (November 2026). Rates and thresholds change; check the Licensing Guide and billing pages before quoting numbers.
 
 ## Security and governance
 
@@ -24,7 +24,8 @@ Key page: https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-an
 
 ### 1. Copilot Credits (usage-based) — Microsoft Copilot harness and Customer Conversation harness
 
-- Copilot Credits measure usage of agents, workflows, and apps powered by these harnesses, including building, testing, and evaluating.
+- Copilot Credits measure usage of agents, workflows, and apps powered by these harnesses, including building, testing, and evaluating. Per-workflow Copilot Credit usage is visible to makers (November 2026).
+- Running apps built in Copilot Studio and Copilot Cowork (Frontier) is included with Power Apps Premium user licenses subject to existing request limits; usage beyond the limits and AI runtime (agents, Work IQ APIs) consume Copilot Credits (October 2026 Power Platform Licensing Guide).
 - Purchase/management: Power Platform admin center, via pay-as-you-go (linked to an Azure subscription; pay monthly for actual use) or one-year prepaid Copilot Credit packs.
 - Monitor per-agent consumption on the agent's Monitor page in Copilot Studio, with activity/outcome breakdown when available.
 - Estimation: Copilot Credits estimator; guide: "Copilot Credits Guide".

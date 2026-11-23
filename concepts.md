@@ -1,10 +1,10 @@
 # Copilot Studio Core Concepts
 
-Detail distilled from Microsoft Learn (October 2026). For step-by-step tasks, follow the linked official pages.
+Detail distilled from Microsoft Learn and the Microsoft Copilot blog (November 2026, post-Ignite 2026). For step-by-step tasks, follow the linked official pages.
 
 ## Harnesses (runtimes)
 
-A harness is the runtime between your design and the language model: it decides when to call the model, what components to send, interprets responses, and calls tools. Everything you build runs on one of three harnesses; the choice affects behavior, capabilities, and billing.
+A harness is the runtime between your design and the language model: it decides when to call the model, what components to send, interprets responses, and calls tools. Everything you build runs on one of three harnesses; the choice affects behavior, capabilities, and billing. Status: Customer Conversation harness became generally available in November 2026 (Microsoft Ignite 2026); the Microsoft Copilot harness is production-ready; the standard harness remains the classic topic-based runtime.
 
 | Aspect | Microsoft Copilot harness | Customer Conversation harness | Standard harness |
 |---|---|---|---|
@@ -23,12 +23,12 @@ Example fits: accounts payable (read invoices, match POs, route exceptions) → 
 - Created by describing in plain language (natural-language build, preview: describe a business goal and Copilot Studio determines the right combination of agents and workflows, creating multiple assets in one session).
 - Instructions + knowledge + tools; reasoning decides the next step.
 - Generative orchestration on by default; turn it off for classic topic-only mode (topics can still call tools).
-- Agent accounts (preview): Entra ID, mailbox, Teams/directory presence; agent completes business processes end to end, responding to email, Teams messages, Office comments with its own identity.
+- Agent accounts (preview): Entra ID, mailbox, Teams/directory presence; agent completes business processes end to end, responding to email, Teams messages, Office comments with its own identity. Dedicated agent accounts with managed credentials and approved-resource access enter public preview in December 2026 (teammate-like agents you can @-mention that keep working around the clock). Agent sharing is GA: multiple makers co-author the same agent.
 - Upgrade path: standard → Microsoft Copilot harness (preview) carries instructions, tools, prompts; rebuilds topics as skills or workflows; produces a migration report.
 
 ## Workflows and agent flows
 
-- **Workflows**: drag-and-drop designer; each step can reason and act; AI generation and end-to-end validation; built-in testing; human-in-the-loop controls. Nodes include extract (pull named values/tables from documents like invoices, contracts, financial statements), Copilot node (preview: run Copilot Chat or a Cowork task grounded in the connected user's mail/files/calendar/chats; call Researcher, Analyst, or Agent Builder agents), and agent node (call a Copilot Studio agent from an agent flow).
+- **Workflows**: drag-and-drop designer; each step can reason and act; AI generation and end-to-end validation; built-in testing; human-in-the-loop controls. Nodes include extract (pull named values/tables from documents like invoices, contracts, financial statements), Copilot node (preview: run Copilot Chat or a Cowork task grounded in the connected user's mail/files/calendar/chats; call Researcher, Analyst, or Agent Builder agents), agent node (call a Copilot Studio agent from an agent flow), and classify node (decision-scoring model by default since November 2026, e.g. email triage and routing). Per-workflow Copilot Credit usage is visible to makers. Agents and workflows can also be created in natural language from Copilot Cowork or Copilot Code (public preview, November 2026) and then governed in Copilot Studio.
 - **Agent flows**: established flow format, Power Automate-like authoring, native to Copilot Studio. Standalone, or attached to an agent as a tool that returns results. Can run prompts, call agents, include human review steps.
 
 ## Tools

@@ -24,6 +24,8 @@ Key capabilities: agent cloning, YAML editing (IntelliSense), component manageme
 
 Typical use cases: IDE-based agent development instead of the web UI; large agents (dozens of topics/tools) where text search and fast navigation beat web navigation; team collaboration via Git with pull-request review; agent-driven development with GitHub Copilot or Claude Code editing the YAML.
 
+**November 2026 (Microsoft Ignite 2026) additions**: developers can build and edit Copilot Studio agents locally with artifacts backed by GitHub repositories, and the **Copilot Studio CLI and Copilot Studio MCP are in public preview**, giving developers and their AI coding assistants access to Copilot Studio components (Microsoft Copilot harness, tools, models). See https://learn.microsoft.com/en-us/microsoft-copilot-studio/whats-new
+
 ## Setup
 
 Prerequisites: Windows 10 1809+ / Windows 11 (x64) or macOS; VS Code 1.80+ (latest recommended); internet; Microsoft account with a Copilot Studio license, access to at least one environment, and read/write permission on target agents.
